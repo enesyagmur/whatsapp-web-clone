@@ -1,0 +1,38 @@
+.input {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #202c33;
+  margin-top: auto;
+
+  .icon {
+    color: #aebac1;
+    cursor: pointer;
+  }
+
+  input {
+    background-color: #2a3942;
+    width: 80%;
+    height: 80%;
+    border: none;
+    border-radius: 10px;
+    padding-left: 10px;
+    outline: none;
+    color: #aebac1;
+    font-size: 15px;
+  }
+  .send {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}

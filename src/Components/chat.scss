@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  background-image: url(../images/chat-bg.jpg);
 
   .chat-info {
     width: 100%;
@@ -13,11 +14,31 @@
     background-color: #202c33;
     color: #aebac1;
 
-    .chat-icons {
-      width: 50px;
+    .user-info {
+      width: 110px;
       height: 100%;
       display: flex;
       align-items: center;
+      justify-content: space-evenly;
+
+      img {
+        height: 30px;
+        width: 30px;
+        background-size: cover;
+        border-radius: 50%;
+      }
+    }
+
+    .chat-icons {
+      width: 70px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+
+      .icon {
+        cursor: pointer;
+      }
     }
   }
 }

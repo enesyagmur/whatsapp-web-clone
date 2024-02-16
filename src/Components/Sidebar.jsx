@@ -2,19 +2,18 @@ import React from "react";
 import "./sidebar.scss";
 import Navbar from "./Navbar";
 import Search from "./Search";
-import Message from "./Message";
+import Chats from "./Chats";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
       <Navbar />
       <Search />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
-      <Message />
+      <Chats />
+      <Chats />
+      <Chats />
+      <Chats />
+      <Chats />
     </div>
   );
 };

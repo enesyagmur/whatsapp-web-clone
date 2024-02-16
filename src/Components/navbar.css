@@ -1,0 +1,34 @@
+.navbar {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #202c33;
+  justify-content: space-between;
+  padding: 10px;
+}
+.navbar .user {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.navbar .user img {
+  height: 30px;
+  width: 30px;
+  background-size: cover;
+  border-radius: 50%;
+}
+.navbar .user p {
+  margin-left: 10px;
+  color: #aebac1;
+  font-weight: bold;
+}
+.navbar button {
+  background-color: #aebac1;
+  width: 50px;
+  height: 30px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}/*# sourceMappingURL=navbar.css.map */
