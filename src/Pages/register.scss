@@ -16,7 +16,7 @@
     justify-content: center;
 
     border-radius: 15px;
-    box-shadow: 2px 2px 2px 2px gray;
+    box-shadow: 2px 2px 2px 2px #222e35;
 
     .logo {
       color: #00a884;
@@ -83,7 +83,7 @@
         transition: all 0.5s;
 
         &:hover {
-          opacity: 0.5;
+          background-color: #222e35;
         }
       }
     }
