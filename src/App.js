@@ -6,5 +6,5 @@ import "./style.scss";
 function App() {
   return <Home />;
 }
-//chats mesajlarının stylını yapıcam
+//chats mesajlarının stylını yaptım
 export default App;
