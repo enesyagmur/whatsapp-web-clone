@@ -1,0 +1,22 @@
+.chat-send-message {
+  width: 100%;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  input {
+    width: 90%;
+    height: 40px;
+    border: none;
+    border-radius: 15px;
+    padding-left: 10px;
+  }
+  .chat-send-message {
+    input:focus {
+      border-color: lightseagreen;
+    }
+    .send-icon {
+      cursor: pointer;
+    }
+  }
+}

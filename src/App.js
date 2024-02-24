@@ -17,3 +17,6 @@ function App() {
 }
 
 export default App;
+
+// daha önce yaptığım projeyi son yaptığım projeye aktararak veriyi realtime çekerek ilk yaşadığım sorunu çözeceğim.
+// şu an chat ve componentlerini çektim sırada sidebar var

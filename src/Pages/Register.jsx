@@ -4,7 +4,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { changeUser } from "../redux/slice";
+import { changeUser } from "../redux/sliceCurrent";
 
 const Register = () => {
   const [email, setEmail] = useState("");
