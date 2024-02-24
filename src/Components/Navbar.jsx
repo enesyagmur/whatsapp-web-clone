@@ -1,7 +1,22 @@
 import React from "react";
 import "./navbar.scss";
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const userSigOutFunc = () => {
+    signOut(auth)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log("çıkış işlemi sırasında hata oluştu: " + err);
+      });
+  };
+
   return (
     <div className="navbar">
       <div className="user">
@@ -11,7 +26,7 @@ const Navbar = () => {
         />
         <p>Enes Yağmur</p>
       </div>
-      <button>Çıkış</button>
+      <button onClick={userSigOutFunc}>Çıkış</button>
     </div>
   );
 };

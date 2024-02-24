@@ -3,6 +3,8 @@ import "./register.scss";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeUser } from "../redux/slice";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -10,6 +12,7 @@ const Register = () => {
   const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const goLogin = () => {
     navigate("/");
@@ -23,8 +26,8 @@ const Register = () => {
         password
       );
       const user = userCredential.user;
-
       console.log("Kullanıcı başarıyla oluşturuldu:", user);
+      dispatch(changeUser(user));
     } catch (error) {
       setErrorMessage(error.message);
       console.error("Kullanıcı oluşturma hatası:", error);
