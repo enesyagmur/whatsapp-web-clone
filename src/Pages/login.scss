@@ -30,7 +30,7 @@
     p {
       font-size: 14px;
     }
-    form {
+    .form {
       width: 80%;
       height: 350px;
       display: flex;
@@ -48,6 +48,12 @@
         display: flex;
 
         cursor: text;
+      }
+      span {
+        margin-left: auto;
+        color: gray;
+        width: 100%;
+        text-align: center;
       }
 
       button {

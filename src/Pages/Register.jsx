@@ -1,14 +1,21 @@
 import React, { useState } from "react";
 import "./register.scss";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth, storage } from "../firebase";
+import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSignUp = async () => {
+  const navigate = useNavigate();
+
+  const goLogin = () => {
+    navigate("/");
+  };
+
+  const signUpFunc = async () => {
     try {
       const userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -46,12 +53,12 @@ const Register = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
 
-          <button type="submit" onClick={handleSignUp}>
+          <button type="submit" onClick={signUpFunc}>
             Kayıt
           </button>
           {errorMessage && <span>Bir şeyler ters gitti.</span>}
         </div>
-        <p>Zaten hesabım var! Giriş</p>
+        <p onClick={goLogin}>Zaten hesabım var! Giriş</p>
       </div>
     </div>
   );
