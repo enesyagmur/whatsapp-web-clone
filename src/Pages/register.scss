@@ -30,7 +30,7 @@
     p {
       font-size: 14px;
     }
-    form {
+    .form {
       width: 80%;
       height: 350px;
       display: flex;
@@ -46,7 +46,7 @@
         background-color: #e8eaed;
         border-bottom: 1px solid #00a884;
         display: flex;
-
+        outline: none;
         cursor: text;
       }
       .file {
@@ -63,8 +63,8 @@
         cursor: pointer;
 
         img {
-          width: 60px;
-          height: 60px;
+          width: 40px;
+          height: 40px;
           border-radius: 5px;
         }
         span {

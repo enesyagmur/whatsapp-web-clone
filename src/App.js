@@ -4,7 +4,7 @@ import Register from "./Pages/Register";
 import "./style.scss";
 
 function App() {
-  return <Home />;
+  return <Register />;
 }
-//chats mesajlarının stylını yaptım
+
 export default App;
