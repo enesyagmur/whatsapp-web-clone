@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./login.scss";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
 import { useDispatch } from "react-redux";
@@ -13,10 +13,6 @@ const Login = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const goRegister = () => {
-    navigate("/register");
-  };
 
   const goHome = () => {
     navigate("/home");
@@ -63,7 +59,9 @@ const Login = () => {
           <button onClick={loginFunc}>Giriş</button>
           {errorMessage && <span>Bir şeyler ters gitti: {errorMessage}</span>}
         </div>
-        <p onClick={goRegister}>Hesabım yok! Kayıt</p>
+        <p>
+          Hesabım yok! <Link to={"/register"}>Kayıt</Link>
+        </p>
       </div>
     </div>
   );

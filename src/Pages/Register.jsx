@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./register.scss";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changeUser } from "../redux/slice";
 
@@ -11,12 +11,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  const goLogin = () => {
-    navigate("/");
-  };
 
   const signUpFunc = async () => {
     try {
@@ -61,7 +56,9 @@ const Register = () => {
           </button>
           {errorMessage && <span>Bir şeyler ters gitti.</span>}
         </div>
-        <p onClick={goLogin}>Zaten hesabım var! Giriş</p>
+        <p>
+          Zaten hesabım var! <Link to={"/"}>Giriş</Link>
+        </p>
       </div>
     </div>
   );
