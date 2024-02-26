@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import "./register.scss";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../firebase";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changeUser } from "../redux/sliceCurrent";
 
 const Register = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -20,9 +21,14 @@ const Register = () => {
         email,
         password
       );
+
       const user = userCredential.user;
+      await updateProfile(user, {
+        displayName: name,
+      });
       console.log("Kullanıcı başarıyla oluşturuldu:", user);
       dispatch(changeUser(user));
+      Navigate("/home");
     } catch (error) {
       setErrorMessage(error.message);
       console.error("Kullanıcı oluşturma hatası:", error);
@@ -35,7 +41,13 @@ const Register = () => {
         <span className="logo">WHATSAPP WEB</span>
         <span className="title">Yeni Kullanıcı</span>
         <div className="form">
-          <input type="text" className="text" placeholder="Kullanıcı" />
+          <input
+            type="text"
+            className="text"
+            placeholder="Kullanıcı"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <input
             type="email"
             className="text"

@@ -8,14 +8,14 @@ import {
   collection,
   doc,
   getDocs,
-  setDoc,
   updateDoc,
 } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 
 const ChatMessageSend = ({ roomId, setResetChatBody, resetChatBody }) => {
   const [inputMessage, setInputMessage] = useState("");
-  const [countState, setCountState] = useState([]);
+  const [countValue, setCountValue] = useState();
+  const [countId, setCountId] = useState();
 
   const messagesRef = collection(db, "messages");
   const counterRef = collection(db, "counter");
@@ -36,11 +36,8 @@ const ChatMessageSend = ({ roomId, setResetChatBody, resetChatBody }) => {
         id: doc.id,
       }));
       if (count) {
-        const newArray = [];
-        newArray.push(count[0].id);
-        newArray.push(count[0].count);
-
-        setCountState(newArray);
+        setCountValue(count[0].count);
+        setCountId(count[0].id);
       }
     } catch (err) {
       console.log("Counter ı çekerken hata oldu:" + err);
@@ -48,9 +45,9 @@ const ChatMessageSend = ({ roomId, setResetChatBody, resetChatBody }) => {
   };
 
   const changeCountFunc = async () => {
-    const counterDoc = doc(db, "counter", countState[0]);
+    const counterDoc = doc(db, "counter", countId);
     try {
-      await updateDoc(counterDoc, { count: countState[1] + 1 });
+      await updateDoc(counterDoc, { count: countValue + 1 });
     } catch (err) {
       console.log("Counter ı güncellerken hata oldu " + err);
     }
@@ -62,10 +59,9 @@ const ChatMessageSend = ({ roomId, setResetChatBody, resetChatBody }) => {
       await addDoc(messagesRef, {
         message: inputMessage,
         messageTime: takeInstantTimeFunc(),
-        messageOrder: countState[1],
+        messageOrder: countValue,
         userId: auth.currentUser.uid,
         userName: auth.currentUser.displayName,
-        userLogo: auth.currentUser.photoURL,
         roomId: roomId,
       });
       changeCountFunc();
