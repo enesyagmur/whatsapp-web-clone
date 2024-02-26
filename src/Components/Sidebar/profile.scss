@@ -1,0 +1,40 @@
+.profile {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ebebeb;
+  border: 1px solid #f6f6f6;
+  border-top-left-radius: 10px;
+
+  .logo {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+    .profile-icons {
+      width: 60%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      color: gray;
+
+      .icon {
+        font-size: var(--fontLarge);
+        cursor: pointer;
+        transition: all 0.5s;
+        &:hover {
+          color: black;
+        }
+      }
+    }
+  }
+}

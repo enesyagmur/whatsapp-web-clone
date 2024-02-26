@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sliceCurrentUser from "./sliceCurrent";
-import sliceRoomId from "./sliceRoomId";
+import sliceRoom from "./sliceRoom";
 
 export const store = configureStore({
   reducer: {
     user: sliceCurrentUser,
-    roomId: sliceRoomId,
+    roomId: sliceRoom,
   },
 });

@@ -1,0 +1,39 @@
+.room {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 15px;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-bottom: 1px solid #f6f6f6;
+
+  &:hover {
+    background-color: #ebebeb;
+  }
+  img {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+  .room-info {
+    width: 75%;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    .title {
+      font-size: var(--fontMedium);
+      font-weight: 500;
+    }
+    .detail {
+      color: gray;
+    }
+  }
+}

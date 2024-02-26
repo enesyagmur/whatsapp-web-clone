@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase";
 import Chat from "../Components/Chat/Chat";
+import Sidebar from "../Components/Sidebar/Sidebar";
 
 const Home = () => {
   const [currentUser, setCurrentUser] = useState(null);
@@ -27,6 +28,7 @@ const Home = () => {
   return (
     <div className="home">
       <div className="container">
+        <Sidebar />
         <Chat />
       </div>
     </div>

@@ -29,7 +29,7 @@ const Chat = () => {
         }
       }
     } catch (err) {
-      console.log("Chat komponentinde roomsları çekmede hata oluştu:" + err);
+      console.log("Chat komponentinde grupları çekmede hata oluştu:" + err);
     }
   };
 
