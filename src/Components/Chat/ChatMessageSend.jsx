@@ -18,8 +18,6 @@ const ChatMessageSend = ({ roomId }) => {
   const [inputMessage, setInputMessage] = useState("");
   const [countValue, setCountValue] = useState();
   const [countId, setCountId] = useState();
-  const messagesRef = collection(db, "messages");
-  const counterRef = collection(db, "counter");
 
   const takeInstantTimeFunc = () => {
     const time = new Date().toLocaleTimeString();
@@ -30,9 +28,9 @@ const ChatMessageSend = ({ roomId }) => {
   };
 
   const counterGetRealTimeFunc = () => {
-    const messagesRef = collection(db, "counter");
-    const queryMessages = query(messagesRef);
-    onSnapshot(queryMessages, (snapShot) => {
+    const counterRef = collection(db, "counter");
+    const queryCounter = query(counterRef);
+    onSnapshot(queryCounter, (snapShot) => {
       const counter = [];
       snapShot.forEach((doc) => {
         counter.push({ ...doc.data(), id: doc.id });
@@ -41,22 +39,6 @@ const ChatMessageSend = ({ roomId }) => {
       setCountId(counter[0].id);
     });
   };
-
-  // const getCountFunc = async () => {
-  //   try {
-  //     const counter = await getDocs(counterRef);
-  //     const count = counter.docs.map((doc) => ({
-  //       ...doc.data(),
-  //       id: doc.id,
-  //     }));
-  //     if (count) {
-  //       setCountValue(count[0].count);
-  //       setCountId(count[0].id);
-  //     }
-  //   } catch (err) {
-  //     console.log("Counter ı çekerken hata oldu:" + err);
-  //   }
-  // };
 
   const changeCountFunc = async () => {
     const counterDoc = doc(db, "counter", countId);
@@ -68,13 +50,15 @@ const ChatMessageSend = ({ roomId }) => {
   };
 
   const sendMessageFunc = async () => {
+    const messageRef = collection(db, "messages");
     try {
-      await addDoc(messagesRef, {
+      await addDoc(messageRef, {
         message: inputMessage,
         messageTime: takeInstantTimeFunc(),
         messageOrder: countValue,
         userId: auth.currentUser.uid,
         userName: auth.currentUser.displayName,
+        userLogo: auth.currentUser.photoURL,
         roomId: roomId,
       });
       changeCountFunc();

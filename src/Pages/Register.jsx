@@ -1,16 +1,18 @@
 import React, { useState } from "react";
 import "./register.scss";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../firebase";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { auth, storage } from "../firebase";
+import { Link, Navigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { changeUser } from "../redux/sliceCurrent";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [image, setImage] = useState("");
 
   const dispatch = useDispatch();
 
@@ -25,8 +27,15 @@ const Register = () => {
       const user = userCredential.user;
       await updateProfile(user, {
         displayName: name,
-      });
-      console.log("Kullanıcı başarıyla oluşturuldu:", user);
+        photoURL: image,
+      })
+        .then(() => {
+          console.log("Kullanıcı bilgileri başarı ile güncellendi");
+        })
+        .catch((error) => {
+          console.log("Kullanıcı bilgileri güncellenemedi: " + error);
+        });
+      console.log("Kullanıcı başarıyla oluşturuldu");
       dispatch(changeUser(user));
       Navigate("/home");
     } catch (error) {
@@ -62,7 +71,12 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-
+          <input
+            type="text"
+            onChange={(e) => {
+              setImage(e.target.value);
+            }}
+          />
           <button type="submit" onClick={signUpFunc}>
             Kayıt
           </button>

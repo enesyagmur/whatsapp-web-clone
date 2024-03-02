@@ -22,13 +22,13 @@ const Profile = () => {
 
   return (
     <div className="profile">
-      {/* <div className="logo">
+      <div className="logo">
         {auth.currentUser.photoURL ? (
           <img src={auth.currentUser.photoURL} alt="" />
         ) : (
-          <img src="https://random.imagecdn.app/500/150" alt="" />
+          <img src="" alt="" />
         )}
-      </div> */}
+      </div>
       <div className="profile-icons">
         <MdDonutLarge className="icon" />
         <MdOutlineMessage className="icon" />

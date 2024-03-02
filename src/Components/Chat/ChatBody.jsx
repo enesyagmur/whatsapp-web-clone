@@ -22,7 +22,7 @@ const ChatBody = ({ roomId }) => {
       }
     });
   };
-  console.log(messages);
+
   useEffect(() => {
     getAllMessagesFunc();
   }, []);
