@@ -12,11 +12,10 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 
-const ChatMessageSend = ({ roomId, setResetChatBody, resetChatBody }) => {
+const ChatMessageSend = ({ roomId }) => {
   const [inputMessage, setInputMessage] = useState("");
   const [countValue, setCountValue] = useState();
   const [countId, setCountId] = useState();
-
   const messagesRef = collection(db, "messages");
   const counterRef = collection(db, "counter");
 
@@ -66,7 +65,6 @@ const ChatMessageSend = ({ roomId, setResetChatBody, resetChatBody }) => {
       });
       changeCountFunc();
       setInputMessage("");
-      setResetChatBody(resetChatBody + 1);
     } catch (error) {
       console.log("Mesaj kayıt sırasında hata oluştu : " + error);
     }

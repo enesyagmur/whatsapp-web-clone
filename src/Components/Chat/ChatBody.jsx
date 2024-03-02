@@ -1,31 +1,30 @@
 import React, { useEffect, useState } from "react";
 import "./chatBody.scss";
 import ChatBodyMessage from "./ChatBodyMessage";
-import {
-  collection,
-  doc,
-  getDocs,
-  onSnapshot,
-  query,
-  where,
-} from "firebase/firestore";
-import { auth, db } from "../../firebase";
-import { useSelector } from "react-redux";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
+import { db } from "../../firebase";
 
-const ChatBody = ({ roomId, resetChatBody }) => {
+const ChatBody = ({ roomId }) => {
   const [messages, setMessages] = useState();
 
-  const messagesRef = collection(db, "messages");
-
-  useEffect(() => {
+  const getAllMessagesFunc = () => {
+    const messagesRef = collection(db, "messages");
     const queryMessages = query(messagesRef, where("roomId", "==", roomId));
     onSnapshot(queryMessages, (snapShot) => {
-      let newArray = [];
+      const newArray = [];
       snapShot.forEach((doc) => {
         newArray.push({ ...doc.data(), id: doc.id });
       });
-      setMessages(newArray);
+
+      if (newArray) {
+        newArray.sort((a, b) => a.messageOrder - b.messageOrder);
+        setMessages(newArray);
+      }
     });
+  };
+
+  useEffect(() => {
+    getAllMessagesFunc();
   }, []);
 
   return (

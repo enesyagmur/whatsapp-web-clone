@@ -10,7 +10,6 @@ import { useSelector } from "react-redux";
 
 const Chat = () => {
   const [selectedRoom, setSelectedRoom] = useState("");
-  const [resetChatBody, setResetChatBody] = useState(0);
   const reduxRoomId = useSelector((state) => state.roomId.id);
 
   const getRoomsFunc = async () => {
@@ -41,12 +40,8 @@ const Chat = () => {
     return (
       <div className="chat">
         <ChatHeader room={selectedRoom} />
-        <ChatBody roomId={reduxRoomId} resetChatBody={resetChatBody} />
-        <ChatMessageSend
-          roomId={reduxRoomId}
-          resetChatBody={resetChatBody}
-          setResetChatBody={setResetChatBody}
-        />
+        <ChatBody roomId={reduxRoomId} />
+        <ChatMessageSend roomId={reduxRoomId} />
       </div>
     );
   } else {
