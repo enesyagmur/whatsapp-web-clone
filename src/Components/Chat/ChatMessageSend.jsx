@@ -8,6 +8,8 @@ import {
   collection,
   doc,
   getDocs,
+  onSnapshot,
+  query,
   updateDoc,
 } from "firebase/firestore";
 import { auth, db } from "../../firebase";
@@ -27,21 +29,34 @@ const ChatMessageSend = ({ roomId }) => {
     return instantTime;
   };
 
-  const getCountFunc = async () => {
-    try {
-      const counter = await getDocs(counterRef);
-      const count = counter.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      if (count) {
-        setCountValue(count[0].count);
-        setCountId(count[0].id);
-      }
-    } catch (err) {
-      console.log("Counter ı çekerken hata oldu:" + err);
-    }
+  const counterGetRealTimeFunc = () => {
+    const messagesRef = collection(db, "counter");
+    const queryMessages = query(messagesRef);
+    onSnapshot(queryMessages, (snapShot) => {
+      const counter = [];
+      snapShot.forEach((doc) => {
+        counter.push({ ...doc.data(), id: doc.id });
+      });
+      setCountValue(counter[0].count);
+      setCountId(counter[0].id);
+    });
   };
+
+  // const getCountFunc = async () => {
+  //   try {
+  //     const counter = await getDocs(counterRef);
+  //     const count = counter.docs.map((doc) => ({
+  //       ...doc.data(),
+  //       id: doc.id,
+  //     }));
+  //     if (count) {
+  //       setCountValue(count[0].count);
+  //       setCountId(count[0].id);
+  //     }
+  //   } catch (err) {
+  //     console.log("Counter ı çekerken hata oldu:" + err);
+  //   }
+  // };
 
   const changeCountFunc = async () => {
     const counterDoc = doc(db, "counter", countId);
@@ -50,7 +65,6 @@ const ChatMessageSend = ({ roomId }) => {
     } catch (err) {
       console.log("Counter ı güncellerken hata oldu " + err);
     }
-    getCountFunc();
   };
 
   const sendMessageFunc = async () => {
@@ -71,7 +85,7 @@ const ChatMessageSend = ({ roomId }) => {
   };
 
   useEffect(() => {
-    getCountFunc();
+    counterGetRealTimeFunc();
   }, []);
 
   return (
