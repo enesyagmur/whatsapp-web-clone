@@ -18,4 +18,4 @@ function App() {
 
 export default App;
 
-//yeni grup oluşturmayı yapıcam
+//style işlemlerini yapıyorum

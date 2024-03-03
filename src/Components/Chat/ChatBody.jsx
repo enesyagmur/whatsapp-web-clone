@@ -4,6 +4,7 @@ import ChatBodyMessage from "./ChatBodyMessage";
 import { collection, onSnapshot, query, where } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useSelector } from "react-redux";
+import chatBg from "../../images/chat-bg2.png";
 
 const ChatBody = () => {
   const [messages, setMessages] = useState();
