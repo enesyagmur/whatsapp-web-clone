@@ -40,8 +40,8 @@ const Chat = () => {
     return (
       <div className="chat">
         <ChatHeader room={selectedRoom} />
-        <ChatBody roomId={reduxRoomId} />
-        <ChatMessageSend roomId={reduxRoomId} />
+        <ChatBody />
+        <ChatMessageSend />
       </div>
     );
   } else {

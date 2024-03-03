@@ -9,14 +9,13 @@
   cursor: pointer;
   padding-left: 10px;
   padding-right: 10px;
-  border-bottom: 1px solid #f6f6f6;
 
   &:hover {
-    background-color: #ebebeb;
+    background-color: #2a3942;
   }
   img {
-    width: 55px;
-    height: 55px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     margin-right: 5px;
     margin-left: 5px;
@@ -30,12 +29,16 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+    border-bottom: 0.1ch solid #2a3942;
+
     .title {
       font-size: var(--fontMedium);
       font-weight: 500;
+      color: #e9edef;
     }
     .detail {
-      color: gray;
+      color: #7d7f80;
+      font-size: 12px;
     }
   }
 }

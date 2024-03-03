@@ -5,12 +5,12 @@ import { changeId } from "../../redux/sliceRoom";
 
 const Room = ({ name, logo, id }) => {
   const dispatch = useDispatch();
-  const changeIdFunc = () => {
-    dispatch(changeId(id));
+  const changeIdFunc = (roomId) => {
+    dispatch(changeId(roomId));
   };
 
   return (
-    <div className="room" onClick={changeIdFunc}>
+    <div className="room" onClick={() => changeIdFunc(id)}>
       <img src={logo} alt="" />
 
       <div className="room-info">
