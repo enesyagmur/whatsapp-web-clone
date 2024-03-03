@@ -75,7 +75,7 @@ const ChatMessageSend = () => {
 
   return (
     <div className="chat-send-message">
-      <BsEmojiSmile />
+      <BsEmojiSmile className="icon" />
       <input
         type="text"
         placeholder="Bir mesaj yazın"
@@ -83,9 +83,9 @@ const ChatMessageSend = () => {
         onChange={(e) => setInputMessage(e.target.value)}
       />
       {inputMessage !== "" ? (
-        <IoSend onClick={sendMessageFunc} />
+        <IoSend onClick={sendMessageFunc} className="icon" />
       ) : (
-        <FaMicrophone className="send-icon" />
+        <FaMicrophone className="icon" />
       )}
     </div>
   );

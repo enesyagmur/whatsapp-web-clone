@@ -16,14 +16,14 @@
 
   img {
     position: absolute;
-    left: -30px;
+    left: -25px;
     top: 0px;
     max-width: 30px;
-    border-top-left-radius: 50%;
-    border-bottom-left-radius: 50%;
-    width: 35px;
-    height: 35px;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
     object-fit: cover;
+    background-position: center;
   }
 
   .sender {

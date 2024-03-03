@@ -10,13 +10,11 @@
     border: none;
     border-radius: 15px;
     padding-left: 10px;
+    background-color: #2a3942;
+    color: #d1d7db;
   }
-  .chat-send-message {
-    input:focus {
-      border-color: lightseagreen;
-    }
-    .send-icon {
-      cursor: pointer;
-    }
+  .icon {
+    cursor: pointer;
+    color: #627179;
   }
 }
