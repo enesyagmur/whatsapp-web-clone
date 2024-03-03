@@ -5,12 +5,14 @@
   border-bottom-left-radius: 7px;
   padding: 5px;
   width: fit-content;
-  min-height: 70px;
+  height: fit-content;
+  max-width: 65%;
   display: flex;
   margin-top: 5px;
   margin-left: 5px;
   position: relative;
   color: #e9edef;
+  font-family: inherit;
 
   img {
     position: absolute;
@@ -26,23 +28,24 @@
 
   .sender {
     font-weight: 500;
-    height: 10px;
+    height: 15px;
     padding-left: 5px;
     width: 100%;
-    font-size: 14px;
+    font-size: 10px;
     text-transform: capitalize;
   }
   .body-message {
-    min-height: 45px;
+    min-height: 25px;
     display: flex;
     align-items: center;
     padding-left: 5px;
-    font-size: 14px;
+    font-size: 11px;
+    line-height: 16px;
   }
   .date {
     width: 100%;
-    height: 10px;
-    font-size: 10px;
+    height: 7px;
+    font-size: 7px;
     display: flex;
     justify-content: flex-end;
     color: gray;
@@ -58,22 +61,25 @@
   margin-left: auto;
   padding: 5px;
   width: fit-content;
-  min-height: 65px;
+  height: fit-content;
+  max-width: 65%;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
+  font-family: inherit;
 
   .body-message {
-    min-height: 45px;
+    min-height: 25px;
     display: flex;
     align-items: center;
     padding-left: 5px;
-    font-size: 14px;
+    font-size: 11px;
+    line-height: 16px;
   }
   .date {
     width: 100%;
-    height: 10px;
-    font-size: 10px;
+    height: 7px;
+    font-size: 7px;
     display: flex;
     justify-content: flex-end;
     color: #8fae8d;

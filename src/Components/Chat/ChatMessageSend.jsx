@@ -12,11 +12,13 @@ import {
   updateDoc,
 } from "firebase/firestore";
 import { auth, db } from "../../firebase";
+import { useSelector } from "react-redux";
 
-const ChatMessageSend = ({ roomId }) => {
+const ChatMessageSend = () => {
   const [inputMessage, setInputMessage] = useState("");
   const [countValue, setCountValue] = useState();
   const [countId, setCountId] = useState();
+  const reduxRoomId = useSelector((state) => state.roomId.id);
 
   const takeInstantTimeFunc = () => {
     const time = new Date().toLocaleTimeString();
@@ -58,7 +60,7 @@ const ChatMessageSend = ({ roomId }) => {
         userId: auth.currentUser.uid,
         userName: auth.currentUser.displayName,
         userLogo: auth.currentUser.photoURL,
-        roomId: roomId,
+        roomId: reduxRoomId,
       });
       changeCountFunc();
       setInputMessage("");

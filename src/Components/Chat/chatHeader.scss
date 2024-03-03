@@ -14,8 +14,7 @@
     height: 70px;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    margin-left: 20px;
+    color: #e9edef;
 
     img {
       width: 40px;
@@ -25,29 +24,26 @@
 
     .chat-info {
       .chat-title {
-        font-size: var(--fontMedium);
+        font-size: 13px;
         font-weight: bold;
+        margin-left: 7px;
       }
-      .chat-date {
-        color: gray;
-      }
-      .chat-header-icons {
-        width: 170px;
-        height: 70px;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
+    }
+  }
+  .chat-header-icons {
+    width: 170px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 
-        .icon {
-          width: 25px;
-          height: 25px;
-          color: gray;
-          cursor: pointer;
-
-          &:hover {
-            color: black;
-          }
-        }
+    .icon {
+      width: 20px;
+      height: 20px;
+      color: #aebac1;
+      cursor: pointer;
+      &:hover {
+        color: #0c1317;
       }
     }
   }
