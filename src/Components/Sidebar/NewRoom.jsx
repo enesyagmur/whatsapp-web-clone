@@ -4,7 +4,7 @@ import addGroupImage from "../../images/plus.png";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase";
 
-const NewRoom = () => {
+const NewRoom = ({ getRoomsFunc }) => {
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
   const [logo, setLogo] = useState("");
@@ -19,6 +19,7 @@ const NewRoom = () => {
       setLogo("");
       setName("");
       setShow(false);
+      getRoomsFunc();
     } catch (error) {
       console.log("Grup oluştururken hata: " + error);
     }

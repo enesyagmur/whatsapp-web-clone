@@ -3,6 +3,7 @@ import "./roomList.scss";
 import Room from "./Room";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
+import NewRoom from "./NewRoom";
 
 const RoomList = () => {
   const [rooms, setRooms] = useState([]);
@@ -36,6 +37,7 @@ const RoomList = () => {
 
   return (
     <div className="room-list">
+      <NewRoom getRoomsFunc={getRoomsFunc} />
       {rooms
         ? rooms.map((room) => (
             <Room

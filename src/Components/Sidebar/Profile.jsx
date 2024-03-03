@@ -23,11 +23,11 @@ const Profile = () => {
   return (
     <div className="profile">
       <div className="logo">
-        {auth.currentUser.photoURL ? (
+        {/* {auth.currentUser.photoURL ? (
           <img src={auth.currentUser.photoURL} alt="" />
         ) : (
           <img src="" alt="" />
-        )}
+        )} */}
       </div>
       <div className="profile-icons">
         <MdDonutLarge className="icon" />
