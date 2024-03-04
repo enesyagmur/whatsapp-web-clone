@@ -18,7 +18,5 @@ function App() {
 
 export default App;
 
-//grup resimlerini link yerine storage a kaydetmeliyim
-//slice current i projeden kaldırma
+//grup resimlerini link yerine storage a kaydetmeliyim : kaydetme sırasında image url boş hatası alıyorum
 //hesap silme
-//sekme için wp logosu ekle

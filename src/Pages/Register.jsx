@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./register.scss";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth, storage } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -10,8 +11,8 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [image, setImage] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [user, setUser] = useState();
-
   const navigate = useNavigate();
 
   const signUpFunc = async () => {
@@ -33,17 +34,22 @@ const Register = () => {
   };
 
   const userUpdateFunc = async () => {
-    await updateProfile(user, {
-      displayName: name,
-      photoURL: image,
-    })
-      .then(() => {
-        console.log("Kullanıcı bilgileri başarı ile güncellendi");
-        navigate("/");
+    imageUploadFunc();
+    if (imageUrl) {
+      await updateProfile(user, {
+        displayName: name,
+        photoURL: imageUrl,
       })
-      .catch((error) => {
-        console.log("Kullanıcı bilgileri güncellenemedi: " + error);
-      });
+        .then(() => {
+          console.log("Kullanıcı bilgileri başarı ile güncellendi");
+          navigate("/");
+        })
+        .catch((error) => {
+          console.log("Kullanıcı bilgileri güncellenemedi: " + error);
+        });
+    } else {
+      console.log("imageUrl boş profil güncellenemedi");
+    }
   };
 
   useEffect(() => {
@@ -51,6 +57,22 @@ const Register = () => {
       userUpdateFunc();
     }
   }, [user]);
+
+  //resim ekleme
+  const imageUploadFunc = () => {
+    if (!image) {
+      return;
+    }
+
+    const imageRef = ref(storage, `profile_images/${image.name}`);
+    uploadBytes(imageRef, image).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrl(url);
+      });
+    });
+  };
+
+  //ürün ekleme
 
   return (
     <div className="register">
@@ -79,10 +101,16 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <input
+          {/* <input
             type="text"
             onChange={(e) => {
               setImage(e.target.value);
+            }}
+          /> */}
+          <input
+            type="file"
+            onChange={(e) => {
+              setImage(e.target.files[0]);
             }}
           />
           <button type="submit" onClick={signUpFunc}>
