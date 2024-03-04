@@ -4,24 +4,28 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #aebac1;
+  font-family: inherit;
 
   .empty-chat-body {
-    width: 50%;
-    height: 450px;
+    width: 70%;
+    height: 350px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     margin-top: 12%;
+
     img {
-      max-width: 60%;
+      max-width: 50%;
     }
-    title {
+    .title {
       font-weight: 400;
-      font-size: 35px;
+      font-size: 25px;
     }
     .explain {
       text-align: center;
+      font-size: 11px;
     }
     button {
       height: 30px;
@@ -29,6 +33,7 @@
       border: none;
       background-color: #4cca5b;
       color: white;
+      margin-top: 10px;
       border-radius: 5px;
       cursor: pointer;
       transition: all 0.5s;
@@ -38,15 +43,15 @@
         background-color: #ededed;
       }
     }
-    .empty-chat-footer {
-      width: 50%;
-      height: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      top: 120px;
-      font-size: 14px;
-      position: relative;
-    }
+  }
+  .empty-chat-footer {
+    width: 50%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 120px;
+    font-size: 12px;
+    position: relative;
   }
 }
