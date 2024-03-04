@@ -30,9 +30,13 @@ const ChatHeader = ({ room }) => {
           </div>
         </div>
         <div className="chat-header-icons">
-          <IoMdSearch className="icon" />
-          <IoMdMore className="icon" />
-          <AiOutlineDelete className="icon" onClick={deleteRoomFunc} />
+          <IoMdSearch className="icon" title="Desteklenmiyor" />
+          <IoMdMore className="icon" title="Desteklenmiyor" />
+          <AiOutlineDelete
+            className="icon"
+            onClick={deleteRoomFunc}
+            title="Grup Silme"
+          />
         </div>
       </div>
     );

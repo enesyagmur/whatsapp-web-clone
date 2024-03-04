@@ -28,9 +28,9 @@ const Profile = () => {
       ) : null}
 
       <div className="profile-icons">
-        <MdDonutLarge className="icon" />
+        <MdDonutLarge className="icon" title="Desteklenmiyor" />
 
-        <AiOutlineLogout className="icon" onClick={logoutFunc} />
+        <AiOutlineLogout className="icon" onClick={logoutFunc} title="Çıkış" />
       </div>
     </div>
   );
