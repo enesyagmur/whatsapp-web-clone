@@ -12,6 +12,5 @@ export const roomIdSlice = createSlice({
     },
   },
 });
-
 export const { changeId } = roomIdSlice.actions;
 export default roomIdSlice.reducer;

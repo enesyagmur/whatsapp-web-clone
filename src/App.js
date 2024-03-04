@@ -18,5 +18,6 @@ function App() {
 
 export default App;
 
-//scrol style ı özelleştirme
-//profile resmi yüklenirken hata veriyor onu düzeltmem lazım
+//grup resimlerini link yerine storage a kaydetmeliyim
+//grup silme özelliği
+//hesap silme özelliği
