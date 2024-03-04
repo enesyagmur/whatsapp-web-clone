@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./register.scss";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
-import { auth, storage } from "../firebase";
-import { Link, Navigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { changeUser } from "../redux/sliceCurrent";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { auth } from "../firebase";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -13,8 +10,9 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [image, setImage] = useState("");
+  const [user, setUser] = useState();
 
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const signUpFunc = async () => {
     try {
@@ -23,32 +21,42 @@ const Register = () => {
         email,
         password
       );
-
       const user = userCredential.user;
-      await updateProfile(user, {
-        displayName: name,
-        photoURL: image,
-      })
-        .then(() => {
-          console.log("Kullanıcı bilgileri başarı ile güncellendi");
-        })
-        .catch((error) => {
-          console.log("Kullanıcı bilgileri güncellenemedi: " + error);
-        });
+      if (user) {
+        setUser(user);
+      }
       console.log("Kullanıcı başarıyla oluşturuldu");
-      dispatch(changeUser(user));
-      Navigate("/home");
     } catch (error) {
       setErrorMessage(error.message);
       console.error("Kullanıcı oluşturma hatası:", error);
     }
   };
 
+  const userUpdateFunc = async () => {
+    await updateProfile(user, {
+      displayName: name,
+      photoURL: image,
+    })
+      .then(() => {
+        console.log("Kullanıcı bilgileri başarı ile güncellendi");
+        navigate("/");
+      })
+      .catch((error) => {
+        console.log("Kullanıcı bilgileri güncellenemedi: " + error);
+      });
+  };
+
+  useEffect(() => {
+    if (user) {
+      userUpdateFunc();
+    }
+  }, [user]);
+
   return (
     <div className="register">
       <div className="register-main">
         <span className="logo">WHATSAPP WEB</span>
-        <span className="title">Yeni Kullanıcı</span>
+
         <div className="form">
           <input
             type="text"

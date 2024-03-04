@@ -19,5 +19,7 @@ function App() {
 export default App;
 
 //grup resimlerini link yerine storage a kaydetmeliyim
-//grup silme özelliği
-//hesap silme özelliği
+//slice current i projeden kaldırma
+//şifremi unuttum
+//hesap silme
+//sekme için wp logosu ekle
