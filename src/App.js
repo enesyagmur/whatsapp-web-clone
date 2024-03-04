@@ -20,6 +20,5 @@ export default App;
 
 //grup resimlerini link yerine storage a kaydetmeliyim
 //slice current i projeden kaldırma
-//şifremi unuttum
 //hesap silme
 //sekme için wp logosu ekle
