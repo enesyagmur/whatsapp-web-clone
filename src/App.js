@@ -18,6 +18,5 @@ function App() {
 
 export default App;
 
-//boş chat sayfası style işlemleri
 //scrol style ı özelleştirme
 //profile resmi yüklenirken hata veriyor onu düzeltmem lazım
