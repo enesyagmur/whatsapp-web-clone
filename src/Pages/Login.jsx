@@ -6,8 +6,6 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import { useDispatch } from "react-redux";
-import { changeUser } from "../redux/sliceCurrent";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +13,6 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const goHome = () => {
     navigate("/home");
@@ -27,7 +24,6 @@ const Login = () => {
         const user = userCredential.user;
         if (user) {
           goHome();
-          dispatch(changeUser(user));
         }
       })
       .catch((error) => {
