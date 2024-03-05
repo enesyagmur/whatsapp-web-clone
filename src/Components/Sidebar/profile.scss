@@ -18,7 +18,7 @@
     }
   }
 
-  .logo {
+  .user {
     width: 60%;
     height: 100%;
     display: flex;
@@ -26,6 +26,12 @@
     justify-content: flex-start;
     color: #aebac1;
     padding-left: 10px;
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
     p {
       text-transform: capitalize;
       margin-left: 10px;

@@ -18,5 +18,5 @@ function App() {
 
 export default App;
 
-//grup resimlerini link yerine storage a kaydetmeliyim : kaydetme sırasında image url boş hatası alıyorum
+//dosya ekleme görünümünü değiştirme
 //hesap silme

@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, storage } from "../firebase";
 import { Link, useNavigate } from "react-router-dom";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import addButtonImage from "../images/add-image-button (2).png";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -105,10 +106,15 @@ const Register = () => {
 
           <input
             type="file"
+            style={{ display: "none" }}
+            id="file"
             onChange={(e) => {
               setImage(e.target.files[0]);
             }}
           />
+          <label htmlFor="file">
+            <img src={addButtonImage} alt="" />
+          </label>
           <button type="submit" onClick={signUpFunc}>
             Kayıt
           </button>

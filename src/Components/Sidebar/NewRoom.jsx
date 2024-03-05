@@ -4,6 +4,7 @@ import addGroupImage from "../../images/plus.png";
 import { addDoc, collection } from "firebase/firestore";
 import { db, storage } from "../../firebase";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import addButtonImage from "../../images/upload-image-button.png";
 
 const NewRoom = ({ getRoomsFunc }) => {
   const [show, setShow] = useState(false);
@@ -63,11 +64,22 @@ const NewRoom = ({ getRoomsFunc }) => {
         <div className="new-group-inputs">
           <input
             type="text"
+            className="text"
             placeholder="Grup ismi"
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
-          <input type="file" onChange={(e) => setLogo(e.target.files[0])} />
+          <input
+            type="file"
+            style={{ display: "none" }}
+            id="file"
+            onChange={(e) => {
+              setLogo(e.target.files[0]);
+            }}
+          />
+          <label htmlFor="file">
+            <img src={addButtonImage} alt="" />
+          </label>
         </div>
         <div className="new-group-buttons">
           <button onClick={() => setShow(false)}>Geri</button>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./profile.scss";
 import { MdDonutLarge } from "react-icons/md";
 import { AiOutlineLogout } from "react-icons/ai";
@@ -22,7 +22,8 @@ const Profile = () => {
   return (
     <div className="profile">
       {auth.currentUser ? (
-        <div className="logo">
+        <div className="user">
+          <img src={auth.currentUser.photoURL} alt="" />
           <p>{auth.currentUser.displayName}</p>
         </div>
       ) : null}
