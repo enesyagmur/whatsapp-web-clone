@@ -1,3 +1,9 @@
+@mixin tablet {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
 .newRoomOff {
   width: 100%;
   height: 70px;
@@ -19,6 +25,9 @@
   p {
     width: 75%;
     color: #e9edef;
+    @include tablet {
+      display: none;
+    }
   }
 }
 
@@ -30,6 +39,12 @@
   justify-content: space-between;
   transition: all 0.5s;
 
+  @include tablet {
+    width: 100%;
+    height: 200px;
+    flex-direction: column;
+  }
+
   .new-group-inputs {
     width: 75%;
     height: 100%;
@@ -37,6 +52,10 @@
     flex-direction: column;
     justify-content: center;
     gap: 5px;
+
+    @include tablet {
+      width: 100%;
+    }
 
     .text {
       height: 35px;
@@ -82,6 +101,10 @@
     justify-content: center;
     align-items: flex-end;
     gap: 5px;
+
+    @include tablet {
+      width: 100%;
+    }
     button {
       width: 90%;
       height: 35px;

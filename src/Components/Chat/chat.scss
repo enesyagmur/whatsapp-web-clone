@@ -1,3 +1,9 @@
+@mixin tablet {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
 .chat {
   width: 70%;
   height: 100%;
@@ -6,4 +12,8 @@
   align-items: center;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
+
+  @include tablet {
+    width: 85%;
+  }
 }

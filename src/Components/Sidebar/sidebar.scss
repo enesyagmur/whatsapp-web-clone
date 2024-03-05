@@ -1,3 +1,9 @@
+@mixin tablet {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
 .sidebar {
   width: 30%;
   height: 100%;
@@ -6,4 +12,8 @@
   align-items: center;
   background-color: #111b21;
   border-radius: 10px;
+
+  @include tablet {
+    width: 15%;
+  }
 }
