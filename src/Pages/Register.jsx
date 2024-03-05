@@ -10,7 +10,7 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState();
   const [imageUrl, setImageUrl] = useState("");
   const [user, setUser] = useState();
   const navigate = useNavigate();
@@ -34,7 +34,6 @@ const Register = () => {
   };
 
   const userUpdateFunc = async () => {
-    imageUploadFunc();
     if (imageUrl) {
       await updateProfile(user, {
         displayName: name,
@@ -54,16 +53,20 @@ const Register = () => {
 
   useEffect(() => {
     if (user) {
-      userUpdateFunc();
+      imageUploadFunc();
     }
   }, [user]);
 
-  //resim ekleme
+  useEffect(() => {
+    if (imageUrl) {
+      userUpdateFunc();
+    }
+  }, [imageUrl]);
+
   const imageUploadFunc = () => {
     if (!image) {
       return;
     }
-
     const imageRef = ref(storage, `profile_images/${image.name}`);
     uploadBytes(imageRef, image).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
@@ -71,8 +74,6 @@ const Register = () => {
       });
     });
   };
-
-  //ürün ekleme
 
   return (
     <div className="register">
@@ -101,12 +102,7 @@ const Register = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          {/* <input
-            type="text"
-            onChange={(e) => {
-              setImage(e.target.value);
-            }}
-          /> */}
+
           <input
             type="file"
             onChange={(e) => {
