@@ -1,3 +1,9 @@
+@mixin pc {
+  @media screen and (max-width: 1000px) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media screen and (max-width: 700px) {
     @content;
@@ -32,6 +38,9 @@
     justify-content: flex-start;
     color: #aebac1;
     padding-left: 10px;
+    @include pc {
+      width: 20%;
+    }
     @include tablet {
       display: none;
     }
@@ -44,6 +53,9 @@
     p {
       text-transform: capitalize;
       margin-left: 10px;
+      @include pc {
+        display: none;
+      }
     }
   }
   .profile-icons {
