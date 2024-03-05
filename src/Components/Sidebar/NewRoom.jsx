@@ -1,29 +1,54 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./newRoom.scss";
 import addGroupImage from "../../images/plus.png";
 import { addDoc, collection } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db, storage } from "../../firebase";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
 const NewRoom = ({ getRoomsFunc }) => {
   const [show, setShow] = useState(false);
   const [name, setName] = useState("");
-  const [logo, setLogo] = useState("");
+  const [logo, setLogo] = useState();
+  const [logoUrl, setLogoUrl] = useState();
 
   const createNewRoomFunc = async () => {
-    const roomRef = collection(db, "rooms");
-    try {
-      await addDoc(roomRef, {
-        name: name,
-        logo: logo,
-      });
-      setLogo("");
-      setName("");
-      setShow(false);
-      getRoomsFunc();
-    } catch (error) {
-      console.log("Grup oluştururken hata: " + error);
+    if (name) {
+      const roomRef = collection(db, "rooms");
+      try {
+        await addDoc(roomRef, {
+          name: name,
+          logo: logoUrl,
+        });
+        setName("");
+        setShow(false);
+      } catch (error) {
+        console.log("Grup oluştururken hata: " + error);
+      }
     }
   };
+
+  const roomLogoUploadFunc = () => {
+    if (!logo) {
+      return;
+    }
+
+    const logoRef = ref(storage, `group_images/${logo.name}`);
+    uploadBytes(logoRef, logo).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setLogoUrl(url);
+      });
+    });
+  };
+
+  useEffect(() => {
+    if (logoUrl) {
+      createNewRoomFunc();
+    }
+  }, [logoUrl]);
+
+  useEffect(() => {
+    getRoomsFunc();
+  }, [show]);
 
   if (show === false) {
     return (
@@ -42,16 +67,11 @@ const NewRoom = ({ getRoomsFunc }) => {
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
-          <input
-            type="text"
-            placeholder="Logo link"
-            onChange={(e) => setLogo(e.target.value)}
-            value={logo}
-          />
+          <input type="file" onChange={(e) => setLogo(e.target.files[0])} />
         </div>
         <div className="new-group-buttons">
           <button onClick={() => setShow(false)}>Geri</button>
-          <button onClick={createNewRoomFunc}>Oluştur</button>
+          <button onClick={roomLogoUploadFunc}>Oluştur</button>
         </div>
       </div>
     );
