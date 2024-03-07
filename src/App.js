@@ -18,7 +18,6 @@ function App() {
 
 export default App;
 
-// yapabilirsem grup arama ve hesap silme özelliklerinide ekleyeceğim
 // mesaj olarak görsel atma
 // ardından live a alıp performans testi yapıcam
 // son olarak linkedinde paylaşarak projeyi noktalicam

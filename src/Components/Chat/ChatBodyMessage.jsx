@@ -5,25 +5,49 @@ const ChatBodyMessage = ({ message }) => {
   const currentUserID = auth.currentUser.uid;
 
   if (message.userId === currentUserID) {
-    return (
-      <div className="sent-message">
-        <div className="message-content">
-          <p className="body-message">{message.message}</p>
-          <p className="date">{message.messageTime}</p>
+    if (message.message !== null) {
+      return (
+        <div className="sent-message">
+          <div className="message-content">
+            <p className="body-message">{message.message}</p>
+            <p className="date">{message.messageTime}</p>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="sent-message">
+          <div className="message-content">
+            <img src={message.image} alt="" />
+            <p className="date">{message.messageTime}</p>
+          </div>
+        </div>
+      );
+    }
   } else {
-    return (
-      <div className="incoming-message">
-        <img src={message.userLogo} alt="" />
-        <div className="message-content">
-          <p className="sender">{message.userName}</p>
-          <p className="body-message">{message.message}</p>
-          <p className="date">{message.messageTime}</p>
+    if (message.message !== null) {
+      return (
+        <div className="incoming-message">
+          <img src={message.userLogo} alt="" />
+          <div className="message-content">
+            <p className="sender">{message.userName}</p>
+            <p className="body-message">{message.message}</p>
+            <p className="date">{message.messageTime}</p>
+          </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="incoming-message">
+          <img src={message.userLogo} alt="" />
+          <div className="message-content">
+            <p className="sender">{message.userName}</p>
+            <img src={message.image} alt="" />
+            <p className="date">{message.messageTime}</p>
+          </div>
+        </div>
+      );
+    }
   }
 };
 
