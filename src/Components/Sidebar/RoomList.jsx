@@ -40,16 +40,18 @@ const RoomList = () => {
     <div className="room-list">
       <Search rooms={rooms} setRooms={setRooms} getRoomsFunc={getRoomsFunc} />
       <NewRoom getRoomsFunc={getRoomsFunc} />
-      {rooms
-        ? rooms.map((room) => (
-            <Room
-              name={room.name}
-              logo={room.logo}
-              key={room.id}
-              id={room.id}
-            />
-          ))
-        : null}
+      <div className="rooms">
+        {rooms
+          ? rooms.map((room) => (
+              <Room
+                name={room.name}
+                logo={room.logo}
+                key={room.id}
+                id={room.id}
+              />
+            ))
+          : null}
+      </div>
     </div>
   );
 };
