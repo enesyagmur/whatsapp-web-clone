@@ -8,6 +8,7 @@ const Sidebar = ({ setRoomId }) => {
   return (
     <div className="sidebar">
       <Profile />
+
       <RoomList setRoomId={setRoomId} />
     </div>
   );

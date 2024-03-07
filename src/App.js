@@ -18,5 +18,7 @@ function App() {
 
 export default App;
 
-//dosya ekleme görünümünü değiştirme
-//hesap silme
+// yapabilirsem grup arama ve hesap silme özelliklerinide ekleyeceğim
+// mesaj olarak görsel atma
+// ardından live a alıp performans testi yapıcam
+// son olarak linkedinde paylaşarak projeyi noktalicam

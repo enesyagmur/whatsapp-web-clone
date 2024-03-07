@@ -1,0 +1,24 @@
+.search {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #111b21;
+  position: relative;
+  input {
+    width: 85%;
+    height: 30px;
+    background-color: #202c33;
+    border-radius: 5px;
+    border: none;
+    padding-left: 10px;
+    color: #aebac1;
+  }
+  .icon {
+    position: absolute;
+    right: 10%;
+    color: #aebac1;
+    cursor: pointer;
+  }
+}

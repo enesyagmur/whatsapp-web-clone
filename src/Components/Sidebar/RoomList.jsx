@@ -4,6 +4,7 @@ import Room from "./Room";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import NewRoom from "./NewRoom";
+import Search from "./Search";
 
 const RoomList = () => {
   const [rooms, setRooms] = useState([]);
@@ -37,6 +38,7 @@ const RoomList = () => {
 
   return (
     <div className="room-list">
+      <Search rooms={rooms} setRooms={setRooms} getRoomsFunc={getRoomsFunc} />
       <NewRoom getRoomsFunc={getRoomsFunc} />
       {rooms
         ? rooms.map((room) => (
