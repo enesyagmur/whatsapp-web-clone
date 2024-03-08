@@ -18,6 +18,6 @@ function App() {
 
 export default App;
 
-// mesaj olarak görsel atma
-// ardından live a alıp performans testi yapıcam
+// boyutlar normalden farklı gozukuyor
+//performans testi yapıcam sonra performans iyileştirmesi sonra tekrar performans testi
 // son olarak linkedinde paylaşarak projeyi noktalicam
