@@ -28,7 +28,7 @@ const ChatBodyMessage = ({ message }) => {
     if (message.message !== null) {
       return (
         <div className="incoming-message">
-          <img src={message.userLogo} alt="" />
+          <img className="logo" src={message.userLogo} alt="" />
           <div className="message-content">
             <p className="sender">{message.userName}</p>
             <p className="body-message">{message.message}</p>
@@ -39,10 +39,10 @@ const ChatBodyMessage = ({ message }) => {
     } else {
       return (
         <div className="incoming-message">
-          <img src={message.userLogo} alt="" />
-          <div className="message-content">
+          <img className="logo" src={message.userLogo} alt="" />
+          <div className="image-message-content">
             <p className="sender">{message.userName}</p>
-            <img src={message.image} alt="" />
+            <img className="image-message" src={message.image} alt="" />
             <p className="date">{message.messageTime}</p>
           </div>
         </div>

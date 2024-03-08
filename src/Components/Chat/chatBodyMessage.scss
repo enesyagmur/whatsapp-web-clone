@@ -1,3 +1,13 @@
+@mixin tablet {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
+// @include tablet {
+//   width: 15%;
+// }
+
 .incoming-message {
   background-color: #202c33;
   border-top-right-radius: 7px;
@@ -14,7 +24,7 @@
   color: #e9edef;
   font-family: inherit;
 
-  img {
+  .logo {
     position: absolute;
     left: -25px;
     top: 0px;
@@ -42,6 +52,17 @@
     font-size: 14px;
     line-height: 16px;
   }
+
+  .image-message-content {
+    width: 100%;
+
+    .image-message {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+  }
+
   .date {
     width: 100%;
     height: 7px;
