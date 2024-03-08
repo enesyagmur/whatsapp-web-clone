@@ -5,10 +5,13 @@ import { collection, getDocs } from "firebase/firestore";
 import { db } from "../../firebase";
 import NewRoom from "./NewRoom";
 import Search from "./Search";
+import { useSelector } from "react-redux";
 
 const RoomList = () => {
   const [rooms, setRooms] = useState([]);
   const [changeCheck, setChangeCheck] = useState(false);
+
+  const activeRoom = useSelector((state) => state.roomId.id);
 
   const getRoomsFunc = async () => {
     try {
@@ -35,6 +38,12 @@ const RoomList = () => {
   useEffect(() => {
     getRoomsFunc();
   }, []);
+
+  useEffect(() => {
+    if (activeRoom === "") {
+      getRoomsFunc();
+    }
+  }, [activeRoom]);
 
   return (
     <div className="room-list">
