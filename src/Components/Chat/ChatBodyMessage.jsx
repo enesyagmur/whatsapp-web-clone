@@ -17,8 +17,8 @@ const ChatBodyMessage = ({ message }) => {
     } else {
       return (
         <div className="sent-message">
-          <div className="message-content">
-            <img src={message.image} alt="" />
+          <div className="image-message-content">
+            <img className="image-message" src={message.image} alt="" />
             <p className="date">{message.messageTime}</p>
           </div>
         </div>
