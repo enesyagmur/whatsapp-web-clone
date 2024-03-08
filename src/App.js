@@ -20,7 +20,3 @@ function App() {
 }
 
 export default App;
-
-// boyutlar normalden farklı gozukuyor
-//performans testi yapıcam sonra performans iyileştirmesi sonra tekrar performans testi
-// son olarak linkedinde paylaşarak projeyi noktalicam
