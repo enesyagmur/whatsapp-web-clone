@@ -1,17 +1,20 @@
-import Home from "./Pages/Home";
-import Login from "./Pages/Login";
-import Register from "./Pages/Register";
+import React, { Suspense } from "react";
 import "./style.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+const Login = React.lazy(() => import("./Pages/Login"));
+const Register = React.lazy(() => import("./Pages/Register"));
+const Home = React.lazy(() => import("./Pages/Home"));
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
-      </Routes>
+      <Suspense fallback={<p>Yükleniyor...</p>}>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }
