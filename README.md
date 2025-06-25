@@ -1,59 +1,41 @@
-💬 WhatsApp Web Clone
-Bu proje, React, Firebase ve SCSS kullanılarak geliştirilmiş bir WhatsApp Web klonudur.
-Kullanıcı kimlik doğrulama, grup yönetimi ve mesajlaşma gibi temel özellikleri içeren, responsive tasarıma sahip bir gerçek zamanlı sohbet uygulamasıdır.
+# 💬 WhatsApp Web Clone
 
-🔗 Canlı Demo
-Web Sitesi: Siteyi Ziyaret Et
+Bu proje, **React**, **Firebase** ve **SCSS** kullanılarak geliştirilmiş bir **WhatsApp Web klonu**dur. Kullanıcılar, gerçek zamanlı mesajlaşma, grup oluşturma ve görsel gönderme gibi özelliklerden faydalanabilir. Uygulama tamamen responsive olarak tasarlanmıştır.
 
-GitHub Reposu: Kodu Görüntüle
+🔗 [Canlı Demo](https://lnkd.in/dBiiu_5G)
 
-✨ Özellikler
-👤 Kullanıcı İşlemleri
-Kullanıcı kaydı
+---
 
-Giriş / çıkış
+## 🔎 Özellikler
 
-Şifre sıfırlama
+### 🔐 Kullanıcı İşlemleri
+- 📧 E-posta ile kullanıcı **kayıt, giriş ve çıkış**
+- 🔁 **Şifre sıfırlama** özelliği
 
-👥 Grup İşlemleri
-Grup oluşturma
+### 👥 Grup İşlemleri
+- ➕ **Grup oluşturma**
+- 🗑️ **Grup silme**
+- 🔍 **Grup arama** özelliği
 
-Grup silme
+### 💬 Mesajlaşma
+- 📝 Gerçek zamanlı **yazılı mesaj gönderme**
+- 🖼️ **Görsel (resim) gönderme**
+- 🔄 **Gerçek zamanlı mesaj güncellemeleri**
+- 📱 **Responsive tasarım**
 
-Grup arama
+> ⚠️ *Bu versiyonda kişiler arası birebir mesajlaşma veya gruplarda kullanıcı yönetimi (gruba kişi ekleme/çıkarma) özellikleri bulunmamaktadır.*
 
-💬 Mesajlaşma Özellikleri
-Metin mesajı gönderme
+---
 
-Görsel mesaj gönderme (resim)
+## 🧰 Kullanılan Teknolojiler
 
-Mesajların gerçek zamanlı görüntülenmesi
+| Teknoloji           | Açıklama                         |
+|---------------------|----------------------------------|
+| ⚛️ React            | Bileşen tabanlı UI geliştirme     |
+| 🎨 SCSS             | Gelişmiş stil yönetimi            |
+| 🔥 Firebase         | Auth, Firestore & Storage         |
+| 🧠 React Redux      | Global state yönetimi            |
+| 🚦 React Router DOM | Sayfa yönlendirme                |
+| 💎 React Icons      | Görsel ikon desteği              |
 
-📱 Diğer Özellikler
-Responsive (mobil uyumlu) tasarım
-
-Kullanıcı hesabını özelleştirme özelliği bulunmamaktadır
-
-Kişiler arası birebir mesajlaşma ve gruplarda kişi ekleme/çıkarma gibi gelişmiş özellikler şu an için mevcut değildir
-
-🛠️ Kullanılan Teknolojiler
-React
-
-React Redux
-
-React Router DOM
-
-React Icons
-
-Firebase Authentication
-
-Firebase Firestore
-
-Firebase Storage
-
-SCSS (Sass)
-
-📩 İletişim
-İletişime geçmek için GitHub profilini ziyaret edebilir veya canlı demo üzerinden projeyi inceleyebilirsiniz.
-
-📸 Ekran Görüntüleri (isteğe bağlı)
+---
