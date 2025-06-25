@@ -2,7 +2,7 @@
 
 Bu proje, **React**, **Firebase** ve **SCSS** kullanılarak geliştirilmiş bir **WhatsApp Web klonu**dur. Kullanıcılar, gerçek zamanlı mesajlaşma, grup oluşturma ve görsel gönderme gibi özelliklerden faydalanabilir. Uygulama tamamen responsive olarak tasarlanmıştır.
 
-🔗 [Canlı Demo](https://lnkd.in/dBiiu_5G)
+🔗 [Link]([https://lnkd.in/dBiiu_5G](https://whatsapp-web-clone-sandy.vercel.app))
 
 ---
 
